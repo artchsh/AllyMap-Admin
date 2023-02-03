@@ -1,0 +1,7 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/allymapi/admin.allymap.info/
+    - /bin/cp -R dist/assets $DEPLOYPATH
+    - /bin/cp dist/.htaccess $DEPLOYPATH
+    - /bin/cp dist/index.html $DEPLOYPATH

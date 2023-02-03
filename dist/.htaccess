@@ -1,0 +1,2 @@
+FallbackResource http://admin.allymap.info/index.html
+ErrorDocument 404 http://admin.allymap.info/
