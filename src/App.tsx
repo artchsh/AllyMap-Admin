@@ -1,6 +1,5 @@
 // System
 import React from 'react'
-import { AuthProvider, RequireAuth } from 'react-auth-kit'
 import { useRoutes } from 'react-router-dom'
 import type { RouteObject } from 'react-router-dom'
 import AdminControlPanel from './layouts/AdminControlPanel'
@@ -12,12 +11,11 @@ import SettingsControl from './pages/SettingsControl'
 import CommentsControl from './pages/CommentsControl'
 
 export default function App() {
-  const loginPage: string = '/login'
 
   const routes: RouteObject[] = [
     {
       path: '/',
-      element: <RequireAuth loginPath={loginPage}><AdminControlPanel /></RequireAuth>,
+      element: <AdminControlPanel />,
       children: [
         {
           index: true,
@@ -50,8 +48,8 @@ export default function App() {
   const router = useRoutes(routes)
 
   return (
-    <AuthProvider authType="localstorage" authName="_auth">
+    <>
       {router}
-    </AuthProvider>
-  );
+    </>
+  )
 }
