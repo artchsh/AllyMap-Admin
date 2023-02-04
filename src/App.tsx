@@ -9,14 +9,19 @@ import RequestInstitutionControl from './pages/RequestInstitutionsControl'
 import UsersControl from './pages/UsersControl'
 import SettingsControl from './pages/SettingsControl'
 import CommentsControl from './pages/CommentsControl'
-import { AuthProvider } from 'react-auth-kit'
+import { AuthProvider, RequireAuth } from 'react-auth-kit'
+import Login from './pages/Login'
 
 export default function App() {
 
   const routes: RouteObject[] = [
     {
+      path: '/login',
+      element: <Login />
+    },
+    {
       path: '/',
-      element: <AdminControlPanel />,
+      element: <RequireAuth loginPath='/login'><AdminControlPanel /></RequireAuth>,
       children: [
         {
           index: true,
