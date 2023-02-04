@@ -9,6 +9,7 @@ import RequestInstitutionControl from './pages/RequestInstitutionsControl'
 import UsersControl from './pages/UsersControl'
 import SettingsControl from './pages/SettingsControl'
 import CommentsControl from './pages/CommentsControl'
+import { AuthProvider } from 'react-auth-kit'
 
 export default function App() {
 
@@ -48,8 +49,8 @@ export default function App() {
   const router = useRoutes(routes)
 
   return (
-    <>
+    <AuthProvider authType="localstorage" authName="_auth">
       {router}
-    </>
+    </AuthProvider>
   )
 }
